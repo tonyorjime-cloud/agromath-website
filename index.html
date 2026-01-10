@@ -3,21 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="AgroMath is a wholesale agricultural marketplace connecting farmers, buyers, and transporters. OTP is used strictly for account security and verification." />
+  <meta name="description" content="AgroMath is a wholesale agricultural marketplace connecting farmers, buyers, and transporters. SMS and OTP are used strictly for security and transactional notifications." />
   <title>AgroMath — Wholesale Agro Trading</title>
+
   <style>
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:#0b1220;color:#e8eefc}
-    a{color:inherit}
+    body{
+      margin:0;
+      font-family:system-ui,Segoe UI,Roboto,Arial;
+      background:#0b1220;
+      color:#e8eefc;
+    }
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:1000px;margin:auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #223}
-    nav a{margin-left:12px;text-decoration:none;color:#b7c3e6;font-size:14px}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #223;
+      padding-bottom:12px;
+    }
+    nav a{
+      margin-left:14px;
+      color:#b7c3e6;
+      font-size:14px;
+    }
     nav a:hover{color:#fff}
     h1{margin:0}
-    .card{background:#0f1a2e;border-radius:14px;padding:22px;margin-top:20px}
+    .card{
+      background:#0f1a2e;
+      border-radius:14px;
+      padding:22px;
+      margin-top:22px;
+    }
     .muted{color:#b7c3e6}
-    footer{margin-top:40px;border-top:1px solid #223;padding-top:16px;font-size:13px;color:#b7c3e6;display:flex;justify-content:space-between;flex-wrap:wrap}
+    footer{
+      margin-top:40px;
+      border-top:1px solid #223;
+      padding-top:16px;
+      font-size:13px;
+      color:#b7c3e6;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:8px;
+    }
   </style>
 </head>
+
 <body>
 <div class="wrap">
 
@@ -33,25 +65,45 @@
 <div class="card">
   <h2>Wholesale Agricultural Trading, Simplified</h2>
   <p class="muted">
-    AgroMath is a trust-based marketplace that connects <strong>farmers</strong>,
-    <strong>buyers</strong>, and <strong>transporters</strong> for bulk agricultural trade.
-    The platform focuses on verified supply, logistics coordination, and operational transparency.
+    AgroMath is a trust-driven wholesale marketplace connecting
+    <strong>farmers</strong>, <strong>buyers</strong>, and
+    <strong>transporters</strong> for bulk agricultural trade.
+    The platform enables verified listings, logistics coordination,
+    and transparent order fulfillment from farm to city.
   </p>
 </div>
 
 <div class="card">
-  <h3>OTP & Messaging Policy</h3>
+  <h3>SMS & OTP Usage Policy</h3>
   <p class="muted">
-    AgroMath uses One-Time Passwords (OTP) strictly for authentication and account security.
-    OTP messages are sent only when a user initiates login or account verification.
-    AgroMath does not send unsolicited marketing or promotional SMS.
+    AgroMath uses SMS strictly for <strong>transactional and security-critical communication</strong>.
+    This includes:
+  </p>
+  <ul class="muted">
+    <li>One-Time Passwords (OTP) for login and account verification</li>
+    <li>Password reset and account recovery codes</li>
+    <li>Order confirmations and delivery status notifications</li>
+    <li>Escrow, dispute, and service-critical alerts</li>
+  </ul>
+  <p class="muted">
+    AgroMath does <strong>not</strong> send promotional, bulk, or unsolicited marketing messages.
+    All SMS communication is user-initiated or service-critical.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Who Can Use AgroMath</h3>
+  <p class="muted">
+    • Farmers listing bulk agricultural products<br>
+    • Buyers sourcing produce at wholesale scale<br>
+    • Transporters quoting and fulfilling delivery requests
   </p>
 </div>
 
 <div class="card">
   <h3>Contact & Support</h3>
   <p class="muted">
-    Email: <strong>AgroMath@gmail.com</strong><br>
+    Email: <strong>agromath@gmail.com</strong><br>
     Phone: <strong>09066454125</strong><br>
     Location: Abuja, Nigeria
   </p>
@@ -59,10 +111,17 @@
 
 <footer>
   <div>© <span id="y"></span> AgroMath</div>
-  <div>Support: AgroMath@gmail.com</div>
+  <div>
+    <a href="index.html">Home</a> ·
+    <a href="privacy.html">Privacy</a> ·
+    <a href="terms.html">Terms</a>
+  </div>
 </footer>
 
 </div>
-<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
