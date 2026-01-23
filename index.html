@@ -63,6 +63,26 @@
       flex-wrap:wrap;
       gap:8px;
     }
+  
+    /* FAQ */
+    details{
+      border-top:1px solid #223;
+      padding:10px 0;
+    }
+    details:first-of-type{border-top:0;padding-top:0}
+    summary{
+      cursor:pointer;
+      font-weight:600;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:8px 0 0;
+      color:#b7c3e6;
+      line-height:1.6;
+      font-size:14px;
+    }
+
   </style>
 </head>
 
@@ -74,6 +94,7 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
+    <a href="faq.html">FAQ</a>
     <a href="terms.html">Terms</a>
     <a href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener noreferrer">Login</a>
   </nav>
@@ -122,11 +143,50 @@
   </p>
 </div>
 
+
+<div class="card">
+  <h3>Frequently Asked Questions</h3>
+
+  <details>
+    <summary>What is AgroMath?</summary>
+    <p>AgroMath is a wholesale agricultural marketplace that connects farmers, bulk buyers, and transporters to trade and coordinate logistics more efficiently.</p>
+  </details>
+
+  <details>
+    <summary>Who can use AgroMath?</summary>
+    <p>AgroMath is built for three user groups: Farmers (sellers), Buyers (bulk purchasers), and Transporters (logistics providers).</p>
+  </details>
+
+  <details>
+    <summary>How do I create an account and log in?</summary>
+    <p>Use your phone number to register and log in. A one-time password (OTP) is used to verify access and improve account security.</p>
+  </details>
+
+  <details>
+    <summary>How do buyers place orders?</summary>
+    <p>Buyers browse listings, select quantity, and submit an order request. The farmer reviews the request and confirms availability before fulfillment proceeds.</p>
+  </details>
+
+  <details>
+    <summary>How is delivery handled?</summary>
+    <p>Delivery is coordinated through transporters where available. Costs and logistics are agreed during order coordination.</p>
+  </details>
+
+  <details>
+    <summary>How do I contact support?</summary>
+    <p>Call or WhatsApp <a href="tel:08112812709">08112812709</a>, or email <a href="mailto:info@agromath.com.ng">info@agromath.com.ng</a>.</p>
+  </details>
+
+  <p class="muted" style="margin-top:14px">
+    Want the full list? Visit the <a href="faq.html"><strong>FAQ page</strong></a>.
+  </p>
+</div>
+
 <div class="card">
   <h3>Contact & Support</h3>
   <p class="muted">
     Email: <strong>info@agromath.com.ng</strong><br>
-    Phone: <strong>09066454125</strong><br>
+    Phone: <a href="tel:08112812709"><strong>08112812709</strong></a> · <a href="https://wa.me/2348112812709" target="_blank" rel="noopener noreferrer">WhatsApp</a><br>
     Location: Abuja, Nigeria
   </p>
 </div>
@@ -135,7 +195,8 @@
   <div>© <span id="y"></span> AgroMath</div>
   <div>
     <a href="index.html">Home</a> ·
-    <a href="privacy.html">Privacy</a> ·
+    <a href="privacy.html">Privacy</a> <a href="faq.html">FAQ</a>
+    ·
     <a href="terms.html">Terms</a>
   </div>
 </footer>

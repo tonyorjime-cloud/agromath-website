@@ -16,4 +16,8 @@
     <loc>https://agromath.com.ng/terms</loc>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://agromath.com.ng/faq</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
