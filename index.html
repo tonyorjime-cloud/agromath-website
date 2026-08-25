@@ -14,6 +14,7 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+    [id]{scroll-margin-top:94px}
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f8fbf8;color:var(--ink)}
     a{color:inherit;text-decoration:none}
     button{font:inherit}
@@ -72,9 +73,9 @@
     .float-icon{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#edf8f1;font-size:20px}
     .float-card b{display:block;font-size:13px}.float-card small{display:block;color:#7a8c84;margin-top:2px}
 
-    .section{padding:88px 0}
+    .section{padding:72px 0}
     .section.alt{background:white}
-    .section-head{text-align:center;max-width:720px;margin:0 auto 44px}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 34px}
     .kicker{font-size:13px;font-weight:900;color:var(--green);letter-spacing:1.2px;text-transform:uppercase}
     h2{font-size:clamp(32px,4vw,46px);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px;color:#113b27}
     .section-head p{color:var(--muted);line-height:1.7;margin:0;font-size:17px}
@@ -85,13 +86,15 @@
     .role .num{position:absolute;right:18px;top:10px;font-size:74px;line-height:1;color:#edf4ef;font-weight:900}
     .role-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:#edf8f1;font-size:28px;margin-bottom:22px}
     .role h3{font-size:23px;margin:0 0 10px;color:#153d29}
-    .role p{color:var(--muted);line-height:1.65;margin:0 0 18px}
-    .role a{font-weight:900;color:var(--green);font-size:14px}
+    .role p{color:var(--muted);line-height:1.65;margin:0 0 20px}
+    .role-cta{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:12px;background:#edf8f1;border:1px solid #d7eadf;font-weight:900;color:var(--green);font-size:14px;transition:.2s}
+    .role-cta:hover{background:var(--green);color:white;transform:translateY(-1px)}
 
     .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
     .steps{display:grid;gap:15px}
-    .step{display:flex;gap:16px;background:#fbfdfb;border:1px solid var(--line);padding:18px;border-radius:18px}
-    .step-no{flex:0 0 42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900}
+    .step{display:grid;grid-template-columns:46px 1fr auto;gap:14px;align-items:center;background:#fbfdfb;border:1px solid var(--line);padding:16px 18px;border-radius:18px}
+    .step-no{width:42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900}
+    .step-icon{width:38px;height:38px;border-radius:12px;background:#fff5d6;display:grid;place-items:center;font-size:19px;border:1px solid #f3e3ad}
     .step h4{margin:2px 0 5px;font-size:17px}.step p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
     .promise{background:linear-gradient(145deg,#fff9e9,#f5fff8);border:1px solid #e6eadf;border-radius:30px;padding:34px;box-shadow:var(--shadow)}
     .promise-badge{display:inline-grid;place-items:center;width:62px;height:62px;border-radius:20px;background:#fff0c3;font-size:31px}
@@ -99,7 +102,7 @@
     .promise p{color:var(--muted);line-height:1.7}
     .promise-list{display:grid;gap:12px;margin-top:22px}.promise-list div{display:flex;gap:10px;align-items:flex-start;font-weight:700;font-size:14px;color:#385a4a}
 
-    .support{padding:0 0 88px}
+    .support{padding:0 0 72px}
     .support-box{background:linear-gradient(120deg,#093f27,#0b6b3a);color:white;border-radius:30px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:30px;box-shadow:0 24px 60px rgba(8,70,40,.18)}
     .support-box h3{font-size:30px;margin:0 0 8px}.support-box p{margin:0;color:#d5ebdf;line-height:1.6}
     .support-actions{display:flex;flex-wrap:wrap;gap:10px}.support-actions .btn-soft{border-color:rgba(255,255,255,.18)}
@@ -112,7 +115,7 @@
     details[open] summary:after{content:"–"}
     details p{margin:0 0 18px;color:var(--muted);line-height:1.65;font-size:14px}
 
-    .final-cta{padding:86px 0;background:var(--cream)}
+    .final-cta{padding:72px 0;background:var(--cream)}
     .final-card{text-align:center;max-width:880px;margin:auto;background:white;border:1px solid #eee4cb;border-radius:30px;padding:48px 28px;box-shadow:var(--shadow)}
     .final-card h2{margin-top:0}.final-card p{max-width:630px;margin:0 auto;color:var(--muted);line-height:1.7}
     .final-card .hero-actions{justify-content:center}
@@ -184,9 +187,9 @@
       <div class="container">
         <div class="section-head"><div class="kicker">Choose what you want to do</div><h2>AgroMath is for people who grow, buy or move food.</h2><p>No complicated language. Pick your role and follow the steps that matter to you.</p></div>
         <div class="role-grid">
-          <article class="role"><span class="num">01</span><div class="role-icon">🌱</div><h3>I want to sell</h3><p>List the produce you have, show buyers what is available and respond to genuine order requests.</p><a href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Farmer →</a></article>
-          <article class="role"><span class="num">02</span><div class="role-icon">🛒</div><h3>I want to buy</h3><p>Find farm produce in bulk, choose what you need and place an order from your phone or computer.</p><a href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Buyer →</a></article>
-          <article class="role"><span class="num">03</span><div class="role-icon">🚛</div><h3>I want to transport</h3><p>See delivery opportunities, send your transport price and handle jobs that match your route and capacity.</p><a href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Transporter →</a></article>
+          <article class="role"><span class="num">01</span><div class="role-icon">🌱</div><h3>I want to sell</h3><p>List the produce you have, show buyers what is available and respond to genuine order requests.</p><a class="role-cta" href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Farmer →</a></article>
+          <article class="role"><span class="num">02</span><div class="role-icon">🛒</div><h3>I want to buy</h3><p>Find farm produce in bulk, choose what you need and place an order from your phone or computer.</p><a class="role-cta" href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Buyer →</a></article>
+          <article class="role"><span class="num">03</span><div class="role-icon">🚛</div><h3>I want to transport</h3><p>See delivery opportunities, send your transport price and handle jobs that match your route and capacity.</p><a class="role-cta" href="https://agromath-mvp-lgez.onrender.com/login" target="_blank" rel="noopener">Continue as a Transporter →</a></article>
         </div>
       </div>
     </section>
@@ -196,10 +199,10 @@
         <div>
           <div class="kicker">How it works</div><h2>A straightforward process from start to finish.</h2>
           <div class="steps">
-            <div class="step"><div class="step-no">1</div><div><h4>Create your account</h4><p>Register with your phone number and confirm it with a one-time code.</p></div></div>
-            <div class="step"><div class="step-no">2</div><div><h4>Choose what you want to do</h4><p>Buy produce, sell your produce or take transport jobs.</p></div></div>
-            <div class="step"><div class="step-no">3</div><div><h4>Agree the order details</h4><p>Keep quantity, price, pickup and delivery information in one place.</p></div></div>
-            <div class="step"><div class="step-no">4</div><div><h4>Complete the transaction</h4><p>Follow the order through payment, pickup and delivery using the steps shown in AgroMath.</p></div></div>
+            <div class="step"><div class="step-no">1</div><div><h4>Create your account</h4><p>Register with your phone number and confirm it with a one-time code.</p></div><div class="step-icon" aria-hidden="true">📱</div></div>
+            <div class="step"><div class="step-no">2</div><div><h4>Choose what you want to do</h4><p>Buy produce, sell your produce or take transport jobs.</p></div><div class="step-icon" aria-hidden="true">🎯</div></div>
+            <div class="step"><div class="step-no">3</div><div><h4>Agree the order details</h4><p>Keep quantity, price, pickup and delivery information in one place.</p></div><div class="step-icon" aria-hidden="true">🤝</div></div>
+            <div class="step"><div class="step-no">4</div><div><h4>Complete the transaction</h4><p>Follow the order through payment, pickup and delivery using the steps shown in AgroMath.</p></div><div class="step-icon" aria-hidden="true">✅</div></div>
           </div>
         </div>
         <aside class="promise">
@@ -223,8 +226,7 @@
           <details><summary>How do I buy farm produce?</summary><p>Open AgroMath, register as a buyer, browse available produce, choose the quantity you want and follow the order steps shown in the app.</p></details>
           <details><summary>How do I sell my produce?</summary><p>Register as a farmer, add the produce you have for sale and respond when buyers place order requests.</p></details>
           <details><summary>How will my goods be delivered?</summary><p>Where transport is required, delivery can be coordinated with transporters through the platform. Pickup, destination and transport cost should be agreed before movement.</p></details>
-          <details><summary>Why do I receive a code on my phone?</summary><p>The one-time code helps confirm that the phone number belongs to you and protects access to your account. AgroMath does not use OTP codes for advertising.</p></details>
-          <details><summary>How do I get help?</summary><p>WhatsApp or call <a href="tel:08112812709"><strong>0811 281 2709</strong></a>, or email <a href="mailto:info@agromath.com.ng"><strong>info@agromath.com.ng</strong></a>. You can also visit the <a href="faq.html"><strong>full FAQ page</strong></a>.</p></details>
+          <a class="btn btn-soft" href="faq.html" style="justify-self:center;margin-top:8px">See all questions</a>
         </div>
       </div>
     </section>
