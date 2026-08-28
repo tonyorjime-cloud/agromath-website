@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="AgroMath | Buy, Sell & Deliver Farm Produce in Nigeria" />
   <meta name="twitter:description" content="A simple marketplace for farmers, buyers and transporters to coordinate bulk farm produce orders and delivery in Nigeria." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,12 +30,1614 @@
     }
   }
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AgroMath",
     "url": "https://agromath.com.ng/",
+    "description": "AgroMath connects farmers, buyers and transporters in Nigeria for bulk farm produce, order coordination and delivery support."
+  }
+  </script>
+
+  <style>
+    :root{
+      --green:#0b6b3a;
+      --green2:#11824a;
+      --deep:#073d25;
+      --cream:#fffaf0;
+      --gold:#f4b740;
+      --ink:#153126;
+      --muted:#61766d;
+      --line:#e5eee9;
+      --white:#fff;
+      --shadow:0 18px 60px rgba(20,70,45,.12);
+      --radius:24px
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    [id]{scroll-margin-top:94px}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#f8fbf8;
+      color:var(--ink)
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none
+    }
+
+    button{font:inherit}
+
+    .container{
+      width:min(1160px,calc(100% - 32px));
+      margin:auto
+    }
+
+    .topbar{
+      background:var(--deep);
+      color:#eaf6ef;
+      font-size:13px
+    }
+
+    .topbar .container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:9px 0
+    }
+
+    .topbar a{font-weight:700}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(8,70,40,.08)
+    }
+
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:900;
+      font-size:22px;
+      letter-spacing:-.6px
+    }
+
+    .mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(145deg,var(--green),#35a866);
+      display:grid;
+      place-items:center;
+      color:white;
+      box-shadow:0 8px 22px rgba(11,107,58,.25)
+    }
+
+    .mark svg{
+      width:24px;
+      height:24px
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      font-size:14px;
+      font-weight:700;
+      color:#456057
+    }
+
+    nav a:hover{color:var(--green)}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:13px 19px;
+      border-radius:14px;
+      border:1px solid transparent;
+      font-weight:800;
+      font-size:14px;
+      transition:.2s ease;
+      cursor:pointer
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+
+    .btn-primary{
+      background:var(--green);
+      color:white;
+      box-shadow:0 10px 26px rgba(11,107,58,.22)
+    }
+
+    .btn-primary:hover{background:var(--green2)}
+
+    .btn-soft{
+      background:white;
+      border-color:#d9e7df;
+      color:var(--deep)
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#362a08;
+      box-shadow:0 10px 24px rgba(244,183,64,.22)
+    }
+
+    .mobile-menu{display:none}
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(130deg,#f6fff9 0%,#fffaf0 56%,#f5fbf7 100%);
+      padding:78px 0 72px
+    }
+
+    .hero:before,
+    .hero:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      filter:blur(1px);
+      opacity:.65
+    }
+
+    .hero:before{
+      width:430px;
+      height:430px;
+      background:#daf2e3;
+      right:-180px;
+      top:-130px
+    }
+
+    .hero:after{
+      width:280px;
+      height:280px;
+      background:#ffefc1;
+      left:-120px;
+      bottom:-150px
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:62px;
+      align-items:center
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid #cfe6d7;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      font-size:13px;
+      font-weight:800;
+      color:var(--green)
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 0 4px rgba(244,183,64,.16)
+    }
+
+    h1{
+      font-size:clamp(44px,6vw,72px);
+      line-height:.98;
+      letter-spacing:-3px;
+      margin:20px 0 22px;
+      color:#0d3824
+    }
+
+    h1 span{color:var(--green)}
+
+    .lead{
+      font-size:19px;
+      line-height:1.7;
+      color:#526d62;
+      max-width:660px;
+      margin:0
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:30px
+    }
+
+    .hero-trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      margin-top:26px;
+      font-size:13px;
+      font-weight:700;
+      color:#587065
+    }
+
+    .hero-trust span{
+      display:flex;
+      align-items:center;
+      gap:7px
+    }
+
+    .tick{
+      width:19px;
+      height:19px;
+      border-radius:50%;
+      background:#daf0e2;
+      color:var(--green);
+      display:grid;
+      place-items:center;
+      font-size:12px
+    }
+
+    .visual{
+      position:relative;
+      min-height:470px
+    }
+
+    .visual-panel{
+      position:absolute;
+      inset:22px 18px;
+      background:linear-gradient(150deg,#0b6b3a,#0b4d2f);
+      border-radius:34px;
+      box-shadow:0 30px 70px rgba(11,79,48,.22);
+      overflow:hidden
+    }
+
+    .visual-panel:before{
+      content:"";
+      position:absolute;
+      width:250px;
+      height:250px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      right:-80px;
+      top:-80px
+    }
+
+    .visual-panel:after{
+      content:"";
+      position:absolute;
+      width:190px;
+      height:190px;
+      border-radius:50%;
+      background:rgba(244,183,64,.2);
+      left:-70px;
+      bottom:-90px
+    }
+
+    .market-copy{
+      position:absolute;
+      left:38px;
+      right:38px;
+      top:38px;
+      color:white;
+      z-index:2
+    }
+
+    .market-copy small{
+      font-weight:800;
+      opacity:.8;
+      text-transform:uppercase;
+      letter-spacing:1.2px
+    }
+
+    .market-copy h3{
+      font-size:32px;
+      line-height:1.08;
+      margin:10px 0 8px;
+      letter-spacing:-1px
+    }
+
+    .market-copy p{
+      margin:0;
+      color:#d8efe2;
+      line-height:1.55
+    }
+
+    .produce{
+      position:absolute;
+      left:38px;
+      right:38px;
+      bottom:38px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      z-index:2
+    }
+
+    .produce-card{
+      background:rgba(255,255,255,.94);
+      border-radius:19px;
+      padding:15px;
+      box-shadow:0 12px 28px rgba(0,0,0,.12)
+    }
+
+    .produce-icon{
+      font-size:30px;
+      margin-bottom:10px
+    }
+
+    .produce-card strong{
+      display:block;
+      font-size:14px;
+      color:#153126
+    }
+
+    .produce-card span{
+      font-size:12px;
+      color:#6d7f76
+    }
+
+    .float-card{
+      position:absolute;
+      z-index:5;
+      background:white;
+      border:1px solid #e4eee8;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      gap:11px
+    }
+
+    .float-card.one{
+      right:-7px;
+      top:4px
+    }
+
+    .float-card.two{
+      left:-10px;
+      bottom:16px
+    }
+
+    .float-icon{
+      width:40px;
+      height:40px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:#edf8f1;
+      font-size:20px
+    }
+
+    .float-card b{
+      display:block;
+      font-size:13px
+    }
+
+    .float-card small{
+      display:block;
+      color:#7a8c84;
+      margin-top:2px
+    }
+
+    .section{padding:72px 0}
+
+    .section.alt{background:white}
+
+    .section-head{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 34px
+    }
+
+    .kicker{
+      font-size:13px;
+      font-weight:900;
+      color:var(--green);
+      letter-spacing:1.2px;
+      text-transform:uppercase
+    }
+
+    h2{
+      font-size:clamp(32px,4vw,46px);
+      letter-spacing:-1.6px;
+      line-height:1.08;
+      margin:10px 0 14px;
+      color:#113b27
+    }
+
+    .section-head p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+      font-size:17px
+    }
+
+    .role-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px
+    }
+
+    .role{
+      position:relative;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 10px 34px rgba(30,80,50,.07);
+      overflow:hidden;
+      transition:.2s
+    }
+
+    .role:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 48px rgba(30,80,50,.11)
+    }
+
+    .role .num{
+      position:absolute;
+      right:18px;
+      top:10px;
+      font-size:74px;
+      line-height:1;
+      color:#edf4ef;
+      font-weight:900
+    }
+
+    .role-icon{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:#edf8f1;
+      font-size:28px;
+      margin-bottom:22px
+    }
+
+    .role h3{
+      font-size:23px;
+      margin:0 0 10px;
+      color:#153d29
+    }
+
+    .role p{
+      color:var(--muted);
+      line-height:1.65;
+      margin:0 0 20px
+    }
+
+    .role-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 15px;
+      border-radius:12px;
+      background:#edf8f1;
+      border:1px solid #d7eadf;
+      font-weight:900;
+      color:var(--green);
+      font-size:14px;
+      transition:.2s
+    }
+
+    .role-cta:hover{
+      background:var(--green);
+      color:white;
+      transform:translateY(-1px)
+    }
+
+    .how-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:56px;
+      align-items:center
+    }
+
+    .steps{
+      display:grid;
+      gap:15px
+    }
+
+    .step{
+      display:grid;
+      grid-template-columns:46px 1fr auto;
+      gap:14px;
+      align-items:center;
+      background:#fbfdfb;
+      border:1px solid var(--line);
+      padding:16px 18px;
+      border-radius:18px
+    }
+
+    .step-no{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--green);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:900
+    }
+
+    .step-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:#fff5d6;
+      display:grid;
+      place-items:center;
+      font-size:19px;
+      border:1px solid #f3e3ad
+    }
+
+    .step h4{
+      margin:2px 0 5px;
+      font-size:17px
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px
+    }
+
+    .promise{
+      background:linear-gradient(145deg,#fff9e9,#f5fff8);
+      border:1px solid #e6eadf;
+      border-radius:30px;
+      padding:34px;
+      box-shadow:var(--shadow)
+    }
+
+    .promise-badge{
+      display:inline-grid;
+      place-items:center;
+      width:62px;
+      height:62px;
+      border-radius:20px;
+      background:#fff0c3;
+      font-size:31px
+    }
+
+    .promise h3{
+      font-size:30px;
+      line-height:1.12;
+      margin:18px 0 12px;
+      color:#133d29
+    }
+
+    .promise p{
+      color:var(--muted);
+      line-height:1.7
+    }
+
+    .promise-list{
+      display:grid;
+      gap:12px;
+      margin-top:22px
+    }
+
+    .promise-list div{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-weight:700;
+      font-size:14px;
+      color:#385a4a
+    }
+
+    .support{
+      padding:0 0 72px
+    }
+
+    .support-box{
+      background:linear-gradient(120deg,#093f27,#0b6b3a);
+      color:white;
+      border-radius:30px;
+      padding:42px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:30px;
+      box-shadow:0 24px 60px rgba(8,70,40,.18)
+    }
+
+    .support-box h3{
+      font-size:30px;
+      margin:0 0 8px
+    }
+
+    .support-box p{
+      margin:0;
+      color:#d5ebdf;
+      line-height:1.6
+    }
+
+    .support-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px
+    }
+
+    .support-actions .btn-soft{
+      border-color:rgba(255,255,255,.18)
+    }
+
+    .faq-grid{
+      max-width:860px;
+      margin:auto;
+      display:grid;
+      gap:12px
+    }
+
+    details{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:0 18px;
+      box-shadow:0 6px 20px rgba(30,80,50,.04)
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:800;
+      padding:18px 34px 18px 0;
+      position:relative
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    summary:after{
+      content:"+";
+      position:absolute;
+      right:0;
+      top:13px;
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      background:#edf7f0;
+      color:var(--green);
+      display:grid;
+      place-items:center;
+      font-size:20px
+    }
+
+    details[open] summary:after{content:"-"}
+
+    details p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px
+    }
+
+    .final-cta{
+      padding:72px 0;
+      background:var(--cream)
+    }
+
+    .final-card{
+      text-align:center;
+      max-width:880px;
+      margin:auto;
+      background:white;
+      border:1px solid #eee4cb;
+      border-radius:30px;
+      padding:48px 28px;
+      box-shadow:var(--shadow)
+    }
+
+    .final-card h2{margin-top:0}
+
+    .final-card p{
+      max-width:630px;
+      margin:0 auto;
+      color:var(--muted);
+      line-height:1.7
+    }
+
+    .final-card .hero-actions{
+      justify-content:center
+    }
+
+    footer{
+      background:#082f1f;
+      color:#d9ebe2;
+      padding:52px 0 24px
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.5fr .7fr .7fr 1fr;
+      gap:34px
+    }
+
+    .footer-brand p{
+      color:#a9c7b7;
+      line-height:1.65;
+      max-width:380px
+    }
+
+    footer h4{
+      margin:3px 0 14px;
+      color:white
+    }
+
+    footer a{
+      display:block;
+      color:#b7d2c4;
+      margin:9px 0;
+      font-size:14px
+    }
+
+    footer a:hover{color:white}
+
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:34px;
+      padding-top:20px;
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      font-size:12px;
+      color:#9bb9aa
+    }
+
+    @media(max-width:900px){
+      nav{display:none}
+      .mobile-menu{display:inline-flex}
+      .hero{padding-top:54px}
+      .hero-grid,.how-grid{grid-template-columns:1fr}
+      .visual{min-height:430px}
+      .role-grid{grid-template-columns:1fr}
+      .support-box{
+        align-items:flex-start;
+        flex-direction:column
+      }
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .hero-grid{gap:34px}
+      h1{letter-spacing:-2px}
+      .float-card.one{right:2px}
+      .float-card.two{left:2px}
+    }
+
+    @media(max-width:560px){
+      .topbar .container{
+        justify-content:center;
+        text-align:center
+      }
+
+      .topbar .container span:last-child{display:none}
+
+      .nav{height:68px}
+
+      .nav-actions .btn-soft{display:none}
+
+      .container{
+        width:min(100% - 22px,1160px)
+      }
+
+      .hero{
+        padding:42px 0 48px
+      }
+
+      .lead{font-size:17px}
+
+      .hero-actions .btn{width:100%}
+
+      .visual{min-height:370px}
+
+      .visual-panel{inset:12px 0}
+
+      .market-copy{
+        left:24px;
+        right:24px;
+        top:28px
+      }
+
+      .market-copy h3{font-size:26px}
+
+      .produce{
+        left:22px;
+        right:22px;
+        bottom:26px;
+        gap:8px
+      }
+
+      .produce-card{padding:11px}
+
+      .produce-icon{font-size:24px}
+
+      .float-card{display:none}
+
+      .section{padding:66px 0}
+
+      .support{padding-bottom:66px}
+
+      .support-box{padding:30px 22px}
+
+      .support-actions{width:100%}
+
+      .support-actions .btn{width:100%}
+
+      .footer-grid{grid-template-columns:1fr}
+
+      .copyright{flex-direction:column}
+
+      .final-cta{padding:66px 0}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>Built for everyday agricultural trade in Nigeria</span>
+      <span>
+        Need help?
+        <a href="https://wa.me/2348112812709" target="_blank" rel="noopener">
+          Chat with us on WhatsApp
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+
+      <a class="brand" href="index.html" aria-label="AgroMath home">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 18c7.5 0 12-4.5 14-13-7.5 0-12 4.5-14 13Z"
+              fill="currentColor"
+            />
+            <path
+              d="M6 19c3-5 6.7-8.5 11.3-10.8"
+              stroke="#ffe39a"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        AgroMath
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#who">Who it's for</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">Help</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a
+          class="btn btn-soft"
+          href="https://wa.me/2348112812709"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Help
+        </a>
+
+        <a
+          class="btn btn-primary"
+          href="https://agromath-pilot.onrender.com/login"
+          target="_blank"
+          rel="noopener"
+        >
+          Open AgroMath
+        </a>
+
+        <a
+          class="btn btn-soft mobile-menu"
+          href="#who"
+          aria-label="Go to options"
+        >
+          Menu
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Simple agricultural trading, in one place
+          </div>
+
+          <h1>
+            Buy. Sell.
+            <span>Deliver.</span>
+            <br>
+            Farm produce, made easier.
+          </h1>
+
+          <p class="lead">
+            AgroMath connects farmers, buyers and transporters so you can
+            find produce, sell in bulk and arrange delivery without
+            unnecessary stress.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="https://agromath-pilot.onrender.com/login"
+              target="_blank"
+              rel="noopener"
+            >
+              Get Started
+            </a>
+
+            <a class="btn btn-gold" href="#how">
+              See How It Works
+            </a>
+
+          </div>
+
+          <div class="hero-trust">
+            <span>
+              <i class="tick">✓</i>
+              Simple to use
+            </span>
+
+            <span>
+              <i class="tick">✓</i>
+              Clear order steps
+            </span>
+
+            <span>
+              <i class="tick">✓</i>
+              Help when you need it
+            </span>
+          </div>
+
+        </div>
+
+        <div class="visual" aria-label="AgroMath marketplace illustration">
+
+          <div class="visual-panel">
+
+            <div class="market-copy">
+              <small>AgroMath Marketplace</small>
+
+              <h3>
+                From farm to buyer,
+                <br>
+                with delivery in view.
+              </h3>
+
+              <p>
+                One platform. Three roles. A clearer way to trade.
+              </p>
+            </div>
+
+            <div class="produce">
+
+              <div class="produce-card">
+                <div class="produce-icon">🌽</div>
+                <strong>Maize</strong>
+                <span>Bulk produce</span>
+              </div>
+
+              <div class="produce-card">
+                <div class="produce-icon">🍅</div>
+                <strong>Tomatoes</strong>
+                <span>Fresh supply</span>
+              </div>
+
+              <div class="produce-card">
+                <div class="produce-icon">🫘</div>
+                <strong>Beans</strong>
+                <span>Wholesale lots</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="float-card one">
+            <div class="float-icon">🚚</div>
+
+            <div>
+              <b>Transport made easier</b>
+              <small>Send and compare quotes</small>
+            </div>
+          </div>
+
+          <div class="float-card two">
+            <div class="float-icon">🤝</div>
+
+            <div>
+              <b>Trade with more clarity</b>
+              <small>Orders stay organised</small>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section alt" id="who">
+
+      <div class="container">
+
+        <div class="section-head">
+          <div class="kicker">Choose what you want to do</div>
+
+          <h2>
+            AgroMath is for people who grow, buy or move food.
+          </h2>
+
+          <p>
+            No complicated language. Pick your role and follow the steps
+            that matter to you.
+          </p>
+        </div>
+
+        <div class="role-grid">
+
+          <article class="role">
+
+            <span class="num">01</span>
+
+            <div class="role-icon">🌱</div>
+
+            <h3>I want to sell</h3>
+
+            <p>
+              List the produce you have, show buyers what is available and
+              respond to genuine order requests.
+            </p>
+
+            <a
+              class="role-cta"
+              href="https://agromath-pilot.onrender.com/login"
+              target="_blank"
+              rel="noopener"
+            >
+              Continue as a Farmer →
+            </a>
+
+          </article>
+
+          <article class="role">
+
+            <span class="num">02</span>
+
+            <div class="role-icon">🛒</div>
+
+            <h3>I want to buy</h3>
+
+            <p>
+              Find farm produce in bulk, choose what you need and place an
+              order from your phone or computer.
+            </p>
+
+            <a
+              class="role-cta"
+              href="https://agromath-pilot.onrender.com/login"
+              target="_blank"
+              rel="noopener"
+            >
+              Continue as a Buyer →
+            </a>
+
+          </article>
+
+          <article class="role">
+
+            <span class="num">03</span>
+
+            <div class="role-icon">🚛</div>
+
+            <h3>I want to transport</h3>
+
+            <p>
+              See delivery opportunities, send your transport price and
+              handle jobs that match your route and capacity.
+            </p>
+
+            <a
+              class="role-cta"
+              href="https://agromath-pilot.onrender.com/login"
+              target="_blank"
+              rel="noopener"
+            >
+              Continue as a Transporter →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="how">
+
+      <div class="container how-grid">
+
+        <div>
+
+          <div class="kicker">How it works</div>
+
+          <h2>
+            A straightforward process from start to finish.
+          </h2>
+
+          <div class="steps">
+
+            <div class="step">
+
+              <div class="step-no">1</div>
+
+              <div>
+                <h4>Create your account</h4>
+
+                <p>
+                  Register with your phone number and confirm it with a
+                  one-time code.
+                </p>
+              </div>
+
+              <div class="step-icon" aria-hidden="true">📱</div>
+
+            </div>
+
+            <div class="step">
+
+              <div class="step-no">2</div>
+
+              <div>
+                <h4>Choose what you want to do</h4>
+
+                <p>
+                  Buy produce, sell your produce or take transport jobs.
+                </p>
+              </div>
+
+              <div class="step-icon" aria-hidden="true">🎯</div>
+
+            </div>
+
+            <div class="step">
+
+              <div class="step-no">3</div>
+
+              <div>
+                <h4>Agree the order details</h4>
+
+                <p>
+                  Keep quantity, price, pickup and delivery information in
+                  one place.
+                </p>
+              </div>
+
+              <div class="step-icon" aria-hidden="true">🤝</div>
+
+            </div>
+
+            <div class="step">
+
+              <div class="step-no">4</div>
+
+              <div>
+                <h4>Complete the transaction</h4>
+
+                <p>
+                  Follow the order through payment, pickup and delivery
+                  using the steps shown in AgroMath.
+                </p>
+              </div>
+
+              <div class="step-icon" aria-hidden="true">✅</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <aside class="promise">
+
+          <div class="promise-badge">🛡️</div>
+
+          <h3>
+            Designed to feel simple, while keeping important details clear.
+          </h3>
+
+          <p>
+            AgroMath handles the technical work behind the scenes. You see
+            only the information you need to make the next decision.
+          </p>
+
+          <div class="promise-list">
+
+            <div>
+              <span class="tick">✓</span>
+              Phone verification for account access
+            </div>
+
+            <div>
+              <span class="tick">✓</span>
+              Clear order and delivery information
+            </div>
+
+            <div>
+              <span class="tick">✓</span>
+              Support through WhatsApp, phone and email
+            </div>
+
+            <div>
+              <span class="tick">✓</span>
+              Privacy and service policies available when needed
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+    <section class="support">
+
+      <div class="container">
+
+        <div class="support-box">
+
+          <div>
+            <h3>Not sure what to click?</h3>
+
+            <p>
+              Send us a WhatsApp message or call. We can guide you through
+              the next step.
+            </p>
+          </div>
+
+          <div class="support-actions">
+
+            <a
+              class="btn btn-gold"
+              href="https://wa.me/2348112812709"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp Us
+            </a>
+
+            <a
+              class="btn btn-soft"
+              href="tel:08112812709"
+            >
+              Call 0811 281 2709
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section alt" id="faq">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="kicker">Common questions</div>
+
+          <h2>
+            Quick answers before you get started.
+          </h2>
+
+          <p>
+            We have kept the explanations short and practical.
+          </p>
+
+        </div>
+
+        <div class="faq-grid">
+
+          <details>
+
+            <summary>
+              What exactly does AgroMath do?
+            </summary>
+
+            <p>
+              AgroMath brings farmers, bulk buyers and transporters into one
+              marketplace so they can find each other, organise orders and
+              coordinate delivery.
+            </p>
+
+          </details>
+
+          <details>
+
+            <summary>
+              How do I buy farm produce?
+            </summary>
+
+            <p>
+              Open AgroMath, register as a buyer, browse available produce,
+              choose the quantity you want and follow the order steps shown
+              in the app.
+            </p>
+
+          </details>
+
+          <details>
+
+            <summary>
+              How do I sell my produce?
+            </summary>
+
+            <p>
+              Register as a farmer, add the produce you have for sale and
+              respond when buyers place order requests.
+            </p>
+
+          </details>
+
+          <details>
+
+            <summary>
+              How will my goods be delivered?
+            </summary>
+
+            <p>
+              Where transport is required, delivery can be coordinated with
+              transporters through the platform. Pickup, destination and
+              transport cost should be agreed before movement.
+            </p>
+
+          </details>
+
+          <a
+            class="btn btn-soft"
+            href="faq.html"
+            style="justify-self:center;margin-top:8px"
+          >
+            See all questions
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="final-cta">
+
+      <div class="container">
+
+        <div class="final-card">
+
+          <div class="kicker">
+            Ready when you are
+          </div>
+
+          <h2>
+            Start with what you need today.
+          </h2>
+
+          <p>
+            Whether you are selling a harvest, looking for bulk produce or
+            moving goods between locations, AgroMath gives you one place
+            to begin.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="https://agromath-pilot.onrender.com/login"
+              target="_blank"
+              rel="noopener"
+            >
+              Open AgroMath
+            </a>
+
+            <a
+              class="btn btn-soft"
+              href="https://wa.me/2348112812709"
+              target="_blank"
+              rel="noopener"
+            >
+              Ask for Help
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="AgroMath home"
+          >
+
+            <span class="mark" aria-hidden="true">
+
+              <svg viewBox="0 0 24 24" fill="none">
+
+                <path
+                  d="M5 18c7.5 0 12-4.5 14-13-7.5 0-12 4.5-14 13Z"
+                  fill="currentColor"
+                />
+
+                <path
+                  d="M6 19c3-5 6.7-8.5 11.3-10.8"
+                  stroke="#ffe39a"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+
+              </svg>
+
+            </span>
+
+            <span>AgroMath</span>
+
+          </a>
+
+          <p>
+            A simpler way for farmers, buyers and transporters to connect
+            around agricultural trade and delivery.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h4>Explore</h4>
+
+          <a href="#who">
+            Who it's for
+          </a>
+
+          <a href="#how">
+            How it works
+          </a>
+
+          <a href="faq.html">
+            FAQ
+          </a>
+
+        </div>
+
+        <div>
+
+          <h4>Policies</h4>
+
+          <a href="privacy.html">
+            Privacy
+          </a>
+
+          <a href="terms.html">
+            Terms
+          </a>
+
+        </div>
+
+        <div>
+
+          <h4>Contact</h4>
+
+          <a href="mailto:info@agromath.com.ng">
+            info@agromath.com.ng
+          </a>
+
+          <a href="tel:08112812709">
+            0811 281 2709
+          </a>
+
+          <a
+            href="https://wa.me/2348112812709"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp Support
+          </a>
+
+          <a href="#">
+            Abuja, Nigeria
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="copyright">
+
+        <span>
+          © <span id="y"></span> AgroMath. All rights reserved.
+        </span>
+
+        <span>
+          Farmers • Buyers • Transporters
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>    "url": "https://agromath.com.ng/",
     "description": "AgroMath connects farmers, buyers and transporters in Nigeria for bulk farm produce, order coordination and delivery support."
   }
   </script>
