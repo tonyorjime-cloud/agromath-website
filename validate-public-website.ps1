@@ -4,10 +4,11 @@ $pages = @("index.html", "faq.html", "privacy.html", "terms.html")
 $preferredWhatsAppUrl = "https://wa.me/2348112812709?text=Hello%20AgroMath%2C%20I%20need%20some%20help"
 $staleAppUrl = "https://agromath-mvp-lgez.onrender.com/login"
 $pilotBaseUrl = "https://agromath-pilot.onrender.com"
-$brandLogo = "assets/brand/agromath-mark.png"
+$brandLogo = "assets/brand/agromath-mark-96.png"
 $socialImage = "https://agromath.com.ng/assets/brand/agromath-logo-full.png"
 $requiredBrandAssets = @(
   "assets/brand/agromath-mark.png",
+  "assets/brand/agromath-mark-96.png",
   "assets/brand/agromath-logo.png",
   "assets/brand/agromath-logo-full.png",
   "assets/brand/apple-touch-icon-180.png",
@@ -54,6 +55,7 @@ foreach ($page in $pages) {
 
 $index = Get-Content -LiteralPath "index.html" -Raw
 Assert-True ($index -notmatch '>WhatsApp Help<') "index.html still has the duplicate header WhatsApp Help button"
+Assert-True ($index -notmatch 'href="#"') "index.html still contains a dead href=# link"
 Assert-True ($index -match [regex]::Escape('href="' + $pilotBaseUrl + '"')) "index.html is missing the Pilot app base URL for app entry CTAs"
 Assert-True ($index -match [regex]::Escape('content="' + $socialImage + '"')) "index.html is missing the approved absolute social image URL"
 Assert-True (([regex]::Matches($index, [regex]::Escape('src="' + $brandLogo + '"'))).Count -ge 2) "index.html should use the approved brand mark in header and footer"
@@ -61,6 +63,12 @@ Assert-True (([regex]::Matches($index, [regex]::Escape('src="' + $brandLogo + '"
 $faq = Get-Content -LiteralPath "faq.html" -Raw
 Assert-True ($faq -notmatch 'Call or WhatsApp <a href="tel:08112812709"') "faq.html still has a misleading combined Call/WhatsApp tel link"
 Assert-True ($faq -match [regex]::Escape('href="' + $pilotBaseUrl + '"')) "faq.html is missing the Pilot app base URL for app entry CTAs"
+
+$privacy = Get-Content -LiteralPath "privacy.html" -Raw
+$terms = Get-Content -LiteralPath "terms.html" -Raw
+Assert-True (([regex]::Matches($privacy, '<h1\b')).Count -eq 1) "privacy.html should contain exactly one h1"
+Assert-True (([regex]::Matches($terms, '<h1\b')).Count -eq 1) "terms.html should contain exactly one h1"
+Assert-True ($privacy -notmatch 'Termii') "privacy.html still contains provider-specific Termii wording"
 
 foreach ($page in $pages) {
   $html = Get-Content -LiteralPath $page -Raw
@@ -71,4 +79,3 @@ foreach ($page in $pages) {
 }
 
 "Public website validation passed."
-
