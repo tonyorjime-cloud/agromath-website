@@ -16,6 +16,22 @@ $requiredBrandAssets = @(
   "assets/brand/favicon-16.png",
   "assets/brand/favicon.ico"
 )
+$requiredHelpImages = @(
+  "assets/images/help/phone-registration.png",
+  "assets/images/help/pin-login.png",
+  "assets/images/help/marketplace-list.png",
+  "assets/images/help/product-details.png",
+  "assets/images/help/quantity-cart.png",
+  "assets/images/help/cart-review.png",
+  "assets/images/help/delivery-location.png",
+  "assets/images/help/pickup-or-quote.png",
+  "assets/images/help/payment-review.png",
+  "assets/images/help/farmer-selling-account.png",
+  "assets/images/help/listing-approval.png",
+  "assets/images/help/available-jobs.png",
+  "assets/images/help/delivery-progress.png",
+  "assets/images/help/accept-or-report.png"
+)
 
 function Assert-True {
   param(
@@ -29,6 +45,10 @@ function Assert-True {
 
 foreach ($asset in $requiredBrandAssets) {
   Assert-True (Test-Path -LiteralPath $asset) "Missing approved brand asset: $asset"
+}
+
+foreach ($asset in $requiredHelpImages) {
+  Assert-True (Test-Path -LiteralPath $asset) "Missing help guide screenshot asset: $asset"
 }
 
 foreach ($page in $pages) {
@@ -63,6 +83,13 @@ Assert-True (([regex]::Matches($index, [regex]::Escape('src="' + $brandLogo + '"
 $faq = Get-Content -LiteralPath "faq.html" -Raw
 Assert-True ($faq -notmatch 'Call or WhatsApp <a href="tel:08112812709"') "faq.html still has a misleading combined Call/WhatsApp tel link"
 Assert-True ($faq -match [regex]::Escape('href="' + $pilotBaseUrl + '"')) "faq.html is missing the Pilot app base URL for app entry CTAs"
+Assert-True ($faq -notmatch 'Screenshot needed') "faq.html still contains visible screenshot placeholder labels"
+Assert-True ($faq -notmatch 'Screenshot needed showing') "faq.html still contains screenshot-needed aria labels"
+Assert-True ($faq -notmatch 'image-number') "faq.html still contains image-number placeholders"
+Assert-True ($faq -notmatch 'shot-box') "faq.html still renders placeholder screenshot boxes"
+foreach ($asset in $requiredHelpImages) {
+  Assert-True ($faq -match [regex]::Escape('src="' + $asset + '"')) "faq.html does not render expected help guide screenshot: $asset"
+}
 
 $privacy = Get-Content -LiteralPath "privacy.html" -Raw
 $terms = Get-Content -LiteralPath "terms.html" -Raw
