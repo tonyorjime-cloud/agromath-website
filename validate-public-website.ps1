@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $pages = @("index.html", "faq.html", "privacy.html", "terms.html")
-$preferredWhatsAppUrl = "https://wa.me/2348112812709?text=Hello%20AgroMath%2C%20I%20need%20some%20help"
+$preferredWhatsAppUrl = "https://wa.me/2348112812709?text=Hello%20AgroMath"
 $staleAppUrl = "https://agromath-mvp-lgez.onrender.com/login"
 $pilotBaseUrl = "https://agromath-pilot.onrender.com"
 $brandLogo = "assets/brand/agromath-mark-96.png"
@@ -16,21 +16,19 @@ $requiredBrandAssets = @(
   "assets/brand/favicon-16.png",
   "assets/brand/favicon.ico"
 )
-$requiredHelpImages = @(
-  "assets/images/help/phone-registration.png",
-  "assets/images/help/pin-login.png",
-  "assets/images/help/marketplace-list.png",
-  "assets/images/help/product-details.png",
-  "assets/images/help/quantity-cart.png",
-  "assets/images/help/cart-review.png",
-  "assets/images/help/delivery-location.png",
-  "assets/images/help/pickup-or-quote.png",
-  "assets/images/help/payment-review.png",
-  "assets/images/help/farmer-selling-account.png",
-  "assets/images/help/listing-approval.png",
-  "assets/images/help/available-jobs.png",
-  "assets/images/help/delivery-progress.png",
-  "assets/images/help/accept-or-report.png"
+$homepageBannedCopy = @(
+  "Buy. Sell. Deliver.",
+  "across Nigeria",
+  "approved sellers",
+  "fulfilment",
+  "settlement",
+  "locked total",
+  "order portion",
+  "farmer account",
+  "Offer Transport Services",
+  "transport quotes",
+  "route estimates",
+  "Approved Sellers &bull; Buyers &bull; Transporters"
 )
 
 function Assert-True {
@@ -45,10 +43,6 @@ function Assert-True {
 
 foreach ($asset in $requiredBrandAssets) {
   Assert-True (Test-Path -LiteralPath $asset) "Missing approved brand asset: $asset"
-}
-
-foreach ($asset in $requiredHelpImages) {
-  Assert-True (Test-Path -LiteralPath $asset) "Missing help guide screenshot asset: $asset"
 }
 
 foreach ($page in $pages) {
@@ -76,20 +70,34 @@ foreach ($page in $pages) {
 $index = Get-Content -LiteralPath "index.html" -Raw
 Assert-True ($index -notmatch '>WhatsApp Help<') "index.html still has the duplicate header WhatsApp Help button"
 Assert-True ($index -notmatch 'href="#"') "index.html still contains a dead href=# link"
-Assert-True ($index -match [regex]::Escape('href="' + $pilotBaseUrl + '"')) "index.html is missing the Pilot app base URL for app entry CTAs"
+Assert-True ($index -match [regex]::Escape('href="' + $pilotBaseUrl + '/"')) "index.html is missing the Pilot app base URL for app entry CTAs"
 Assert-True ($index -match [regex]::Escape('content="' + $socialImage + '"')) "index.html is missing the approved absolute social image URL"
 Assert-True (([regex]::Matches($index, [regex]::Escape('src="' + $brandLogo + '"'))).Count -ge 2) "index.html should use the approved brand mark in header and footer"
+Assert-True ($index -match '<title>AgroMath \| Buy and sell foodstuff in Abuja</title>') "index.html has the wrong homepage title"
+Assert-True ($index -match 'Order foodstuff from sellers in Abuja\.') "index.html is missing the approved hero headline"
+Assert-True ($index -match 'Pay on AgroMath\. Collect it, or they bring it\.') "index.html is missing the approved hero subline"
+Assert-True ($index -match '>Buy foodstuff<') "index.html is missing the Buy foodstuff CTA"
+Assert-True ($index -match '>Sell foodstuff<') "index.html is missing the Sell foodstuff CTA"
+Assert-True ($index -match 'Abuja, Nigeria') "index.html is missing the Abuja footer/location line"
+foreach ($copy in $homepageBannedCopy) {
+  Assert-True ($index -notmatch [regex]::Escape($copy)) "index.html still contains banned homepage copy: $copy"
+}
 
 $faq = Get-Content -LiteralPath "faq.html" -Raw
 Assert-True ($faq -notmatch 'Call or WhatsApp <a href="tel:08112812709"') "faq.html still has a misleading combined Call/WhatsApp tel link"
-Assert-True ($faq -match [regex]::Escape('href="' + $pilotBaseUrl + '"')) "faq.html is missing the Pilot app base URL for app entry CTAs"
+Assert-True ($faq -match [regex]::Escape('href="' + $pilotBaseUrl + '/"')) "faq.html is missing the Pilot app base URL for app entry CTAs"
 Assert-True ($faq -notmatch 'Screenshot needed') "faq.html still contains visible screenshot placeholder labels"
 Assert-True ($faq -notmatch 'Screenshot needed showing') "faq.html still contains screenshot-needed aria labels"
 Assert-True ($faq -notmatch 'image-number') "faq.html still contains image-number placeholders"
 Assert-True ($faq -notmatch 'shot-box') "faq.html still renders placeholder screenshot boxes"
-foreach ($asset in $requiredHelpImages) {
-  Assert-True ($faq -match [regex]::Escape('src="' + $asset + '"')) "faq.html does not render expected help guide screenshot: $asset"
-}
+Assert-True ($faq -match 'What does AgroMath do\?') "faq.html is missing the what AgroMath does answer"
+Assert-True ($faq -match 'Who can sell\?') "faq.html is missing the seller answer"
+Assert-True ($faq -match 'How do I buy\?') "faq.html is missing the buyer answer"
+Assert-True ($faq -match 'How does pickup or seller delivery work\?') "faq.html is missing the pickup/seller delivery answer"
+Assert-True ($faq -match 'How does payment work\?') "faq.html is missing the payment answer"
+Assert-True ($faq -match 'How do I get help\?') "faq.html is missing the help answer"
+Assert-True ($faq -match 'Certificate upload is not required to start\.') "faq.html is missing the certificate note"
+Assert-True ($faq -notmatch 'Transport with AgroMath') "faq.html still documents transporter setup"
 
 $privacy = Get-Content -LiteralPath "privacy.html" -Raw
 $terms = Get-Content -LiteralPath "terms.html" -Raw
