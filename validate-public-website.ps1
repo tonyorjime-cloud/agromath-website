@@ -50,7 +50,6 @@ $removed = @(
   'More people. More ways to connect.',
   'agromath-pilot.onrender.com',
   'pending confirmation',
-  'Tilmi',
   'noindex',
   'guaranteed delivery',
   'instant payout',
